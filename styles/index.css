@@ -12,6 +12,10 @@ html, body{
     padding: 0;
 }
 
+body{
+    font-family: 'Courier New', Courier, monospace;
+}
+
 h1, h2, h3, h4{
     margin: 0;
 }
@@ -29,12 +33,18 @@ SUMMARY SECTION
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
+}
+
+.total-balance{
+    font-size: 50px;
 }
 
 .income-total, .expenses-total{
     display: flex;
     width: 50%;
     justify-content: space-between;
+    padding: 0 10px;
 }
 
 .income-total{
@@ -47,4 +57,40 @@ SUMMARY SECTION
 
 .numbers, .percentage{
     color: white;
+}
+
+/* ============================================
+FORM
+============================================*/
+
+.inputs{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    background-color: #f5f5f5 
+}
+
+/* ============================================
+BALANCE SHEET
+============================================*/
+
+.balance-sheet{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.income, .expense{
+    width: 40%;
+}
+
+.income h3{
+    color: rgb(99, 235, 190);
+}
+
+.expenses h3{
+    color: rgb(244, 75, 75);
 }
