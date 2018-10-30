@@ -79,7 +79,7 @@ BALANCE SHEET
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: flex-start;
     padding: 20px 0;
 }
 
@@ -93,4 +93,11 @@ BALANCE SHEET
 
 .expenses h3{
     color: rgb(244, 75, 75);
+}
+
+.added{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    padding: 10px;
 }
