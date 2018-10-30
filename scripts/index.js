@@ -18,7 +18,8 @@ const expenseDiv = document.querySelector('[data-add-expense]');
 // Determine if positive or negative
 // Add to either total income or expenses
 // create div in balance sheet for item
-
+let totalIncomeAmt = parseFloat(totalIncome.textContent);
+let totalExpenseAmt = parseFloat(totalExpense.textContent);
 
 // ================================================================
 // GETTING USER INPUT
@@ -28,14 +29,21 @@ const expenseDiv = document.querySelector('[data-add-expense]');
 function handleSubmit(event) {
     event.preventDefault();
     let description = event.target.elements.description.value;
-    let amount = event.target.elements.amount.value;
+    let amount = parseFloat(event.target.elements.amount.value);
     let isIncome = select.value === '+';
     if (isIncome) {
         incomeDiv.appendChild(makeDivs(description, amount));
+        totalIncomeAmt += amount;
     }
     else {
         expenseDiv.appendChild(makeDivs(description, amount));
+        totalExpenseAmt += amount;
     }
+    totalIncome.textContent = totalIncomeAmt;
+    totalExpense.textContent = totalExpenseAmt;
+    total.textContent = drawTotal(totalIncomeAmt, totalExpenseAmt);
+    description.value = '';
+    amount.value = '';
 }
 
 addForm.addEventListener('submit', handleSubmit);
@@ -50,5 +58,15 @@ function makeDivs(description, amount) {
     newItem.appendChild(itemAmt);
     newItem.classList.add('added');
     return newItem;
+}
+
+function drawTotal(income, expense) {
+    let totalAmt = income - expense;
+    if (totalAmt > 0) {
+        return `+ $${totalAmt}`;
+    }
+    else {
+        return `- $${Math.abs(totalAmt)}`;
+    }
 }
 

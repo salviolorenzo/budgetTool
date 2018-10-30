@@ -84,7 +84,7 @@ BALANCE SHEET
 }
 
 .income, .expense{
-    width: 40%;
+    width: 30%;
 }
 
 .income h3{
@@ -97,7 +97,7 @@ BALANCE SHEET
 
 .added{
     display: flex;
-    width: 80%;
+    width: 200px;
     justify-content: space-between;
     padding: 10px;
 }
