@@ -85,9 +85,13 @@ BALANCE SHEET
 
 .income, .expense{
     width: 30%;
+    display: flex;
+    width: 200px;
+    flex-direction: column;
 }
 
 .income h3{
+    max-width: 100%;
     color: rgb(99, 235, 190);
 }
 
@@ -99,5 +103,7 @@ BALANCE SHEET
     display: flex;
     width: 200px;
     justify-content: space-between;
-    padding: 10px;
+    padding: 0 5px;
+    margin: 10px 0;
+    background-color: #f5f5f5;
 }

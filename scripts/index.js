@@ -31,19 +31,25 @@ function handleSubmit(event) {
     let description = event.target.elements.description.value;
     let amount = parseFloat(event.target.elements.amount.value);
     let isIncome = select.value === '+';
-    if (isIncome) {
-        incomeDiv.appendChild(makeDivs(description, amount));
-        totalIncomeAmt += amount;
+    if (description !== '' && amount !== '') {
+        if (isIncome) {
+            incomeDiv.appendChild(makeDivs(description, amount));
+            totalIncomeAmt += amount;
+        }
+        else {
+            expenseDiv.appendChild(makeDivs(description, amount));
+            totalExpenseAmt += amount;
+        }
+        totalIncome.textContent = totalIncomeAmt;
+        totalExpense.textContent = totalExpenseAmt;
+        expensePercent.textContent = `${drawPercent(totalIncomeAmt, totalExpenseAmt).toFixed(2)}%`;
+        total.textContent = drawTotal(totalIncomeAmt, totalExpenseAmt);
+        description.value = '';
+        amount.value = '';
     }
     else {
-        expenseDiv.appendChild(makeDivs(description, amount));
-        totalExpenseAmt += amount;
+        alert('Fill out entirely');
     }
-    totalIncome.textContent = totalIncomeAmt;
-    totalExpense.textContent = totalExpenseAmt;
-    total.textContent = drawTotal(totalIncomeAmt, totalExpenseAmt);
-    description.value = '';
-    amount.value = '';
 }
 
 addForm.addEventListener('submit', handleSubmit);
@@ -68,5 +74,10 @@ function drawTotal(income, expense) {
     else {
         return `- $${Math.abs(totalAmt)}`;
     }
+}
+
+function drawPercent(income, expense) {
+    let percent = (expense / income) * 100;
+    return percent;
 }
 
