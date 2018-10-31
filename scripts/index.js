@@ -69,10 +69,10 @@ function makeDivs(description, amount) {
 function drawTotal(income, expense) {
     let totalAmt = income - expense;
     if (totalAmt > 0) {
-        return `+ $${totalAmt}`;
+        return `+ $${totalAmt.toFixed(2)}`;
     }
     else {
-        return `- $${Math.abs(totalAmt)}`;
+        return `- $${Math.abs(totalAmt).toFixed(2)}`;
     }
 }
 
