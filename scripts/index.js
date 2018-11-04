@@ -54,9 +54,11 @@ triggerElement.addEventListener('click', function () {
 
     if (headerText.textContent === 'Budgetter') {
         headerText.textContent = 'Tip Calculator';
+        triggerElement.textContent = 'Budgetter';
     }
     else if (headerText.textContent === 'Tip Calculator') {
         headerText.textContent = 'Budgetter';
+        triggerElement.textContent = 'Tip Calculator';
     }
 })
 
@@ -154,8 +156,8 @@ function tipSubmit(event) {
 
     let final = document.createElement('div');
 
-    tipBox.textContent = `Tip Amount: $${tipAmount}`;
-    totalBox.textContent = `Total: $${total}`;
+    tipBox.textContent = `Tip Amount: $${tipAmount.toFixed(2)}`;
+    totalBox.textContent = `Total: $${total.toFixed(2)}`;
     final.appendChild(tipBox);
     final.appendChild(totalBox);
     calcSection.appendChild(final);

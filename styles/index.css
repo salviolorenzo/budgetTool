@@ -14,6 +14,7 @@ html, body{
 
 body{
     font-family: 'Courier New', Courier, monospace;
+    background-color: rgb(237, 237, 237);
 }
 
 h1, h2, h3, h4{
