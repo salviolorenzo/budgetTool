@@ -1,3 +1,6 @@
+const header = document.querySelector('[data-header]');
+const headerText = document.querySelector('[data-header-text]');
+const footer = document.querySelector('[data-footer]');
 // Summary variables
 const budgetHeader = document.querySelector('[data-budget-header]');
 const total = document.querySelector('[data-balance]');
@@ -21,9 +24,43 @@ const expenseDiv = document.querySelector('[data-add-expense]');
 let totalIncomeAmt = parseFloat(totalIncome.textContent);
 let totalExpenseAmt = parseFloat(totalExpense.textContent);
 
+
+const triggerElement = document.querySelector('[data-display-switch]');
+const budgetObject = document.getElementsByClassName('budget');
+const calculatorObject = document.getElementsByClassName('calculator');
+let budgetArray = [];
+let tipArray = [];
 // ================================================================
 // GETTING USER INPUT
 // ================================================================
+for (item of budgetObject) {
+    budgetArray.push(item);
+}
+for (item of calculatorObject) {
+    tipArray.push(item);
+}
+
+
+triggerElement.addEventListener('click', function () {
+    for (item of budgetArray) {
+        item.classList.toggle('hidden');
+    }
+    for (item of tipArray) {
+        item.classList.toggle('hidden');
+    }
+
+    header.classList.toggle('darkMode');
+    footer.classList.toggle('darkMode');
+
+    if (headerText.textContent === 'Budgetter') {
+        headerText.textContent = 'Tip Calculator';
+    }
+    else if (headerText.textContent === 'Tip Calculator') {
+        headerText.textContent = 'Budgetter';
+    }
+})
+
+
 
 
 function handleSubmit(event) {
@@ -81,3 +118,47 @@ function drawPercent(income, expense) {
     return percent;
 }
 
+const tipCalc = document.querySelector('[data-tip-form]');
+const calcSection = document.querySelector('[data-calc]');
+
+function tipSubmit(event) {
+    event.preventDefault();
+    if (calcSection.hasChildNodes()) {
+        calcSection.removeChild(calcSection.firstChild)
+    }
+    let billAmount = parseFloat(event.target.elements.billAmount.value);
+    let quality = event.target.elements.selector.value;
+    let tipPercent;
+
+    if (quality === "Amazing") {
+        tipPercent = 0.35;
+    }
+    else if (quality === "Great") {
+        tipPercent = 0.25;
+    }
+    else if (quality === "Good") {
+        tipPercent = 0.20;
+    }
+    else if (quality === "Fine") {
+        tipPercent = 0.15;
+    }
+    else if (quality === "Eh") {
+        tipPercent = 0.10;
+    }
+
+    let tipAmount = billAmount * tipPercent;
+    let total = billAmount + tipAmount;
+
+    let tipBox = document.createElement('p');
+    let totalBox = document.createElement('p');
+
+    let final = document.createElement('div');
+
+    tipBox.textContent = `Tip Amount: $${tipAmount}`;
+    totalBox.textContent = `Total: $${total}`;
+    final.appendChild(tipBox);
+    final.appendChild(totalBox);
+    calcSection.appendChild(final);
+}
+
+tipCalc.addEventListener('submit', tipSubmit);
