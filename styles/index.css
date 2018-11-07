@@ -75,7 +75,7 @@ SUMMARY SECTION
 
 .income-total{
     background-color: aquamarine;
-    padding-right: 15%;
+    /* padding-right: 15%; */
 }
 
 .expenses-total{
@@ -146,7 +146,6 @@ footer{
     flex-wrap: wrap;
     width: 100%;
     align-items: flex-end;
-    position: absolute;
     bottom: 0;
 }
 
