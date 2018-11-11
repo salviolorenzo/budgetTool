@@ -68,7 +68,7 @@ SUMMARY SECTION
 
 .income-total, .expenses-total{
     display: flex;
-    width: 40%;
+    width: 60%;
     justify-content: space-between;
     padding: 0 10px;
 }
@@ -88,6 +88,8 @@ SUMMARY SECTION
     font-size: 16px;
 }
 
+
+
 /* ============================================
 FORM
 ============================================*/
@@ -105,7 +107,7 @@ BALANCE SHEET
 ============================================*/
 
 .balance-sheet{
-    width: 100%;
+    max-width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: flex-start;
@@ -130,7 +132,7 @@ BALANCE SHEET
 
 .added{
     display: flex;
-    width: 200px;
+    max-width: 200px;
     justify-content: space-between;
     padding: 0 5px;
     margin: 10px 0;
@@ -200,6 +202,10 @@ Tip Calculator
     align-items: center;
     justify-content: space-evenly;
     height: 50%;
+}
+
+.calculator input{
+  padding: 10px;
 }
 
 .screen{
