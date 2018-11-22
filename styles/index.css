@@ -97,9 +97,18 @@ FORM
 .inputs{
     width: 100%;
     display: flex;
+    /* flex-wrap: wrap; */
     justify-content: center;
     padding: 10px 0;
     background-color: #f5f5f5 
+}
+
+.inputs form{
+  width: 100%;
+  height: 100%;
+  display: inherit;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 /* ============================================
@@ -109,21 +118,23 @@ BALANCE SHEET
 .balance-sheet{
     max-width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: flex-start;
+    flex-wrap: wrap;
     padding: 20px 0;
 }
 
 .income, .expense{
-    width: 30%;
+    width: 100%;
     display: flex;
-    width: 200px;
+    align-items: center;
     flex-direction: column;
 }
 
 .income h3{
     max-width: 100%;
     color: rgb(99, 235, 190);
+    text-align: center;
 }
 
 .expenses h3{
@@ -132,7 +143,7 @@ BALANCE SHEET
 
 .added{
     display: flex;
-    max-width: 200px;
+    width:90%;
     justify-content: space-between;
     padding: 0 5px;
     margin: 10px 0;
