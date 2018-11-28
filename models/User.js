@@ -3,6 +3,13 @@ const db = require('./db');
 
 class User {
 // CREATE
+    constructor(id, name, email, passHash){
+        this.id = id,
+        this.name = name,
+        this.email = email,
+        this.passHash = passHash
+    }
+
     static add(name, email, password){
         // ADD BCRYPT FUNCTIONALITY
         return db.any(
@@ -14,6 +21,7 @@ class User {
         )
         .then(data => {
             const u = new User(data.id, name, email);
+            return u;
         })
     }
 
@@ -30,8 +38,8 @@ class User {
         )
         .then(result => {
             const u = new User(result.id, result.name, result.email);
-            }
-        )
+            return u;    
+        })
     }
 
     // UPDATE
@@ -60,3 +68,5 @@ class User {
         );
     }
 }
+
+module.exports = User;
