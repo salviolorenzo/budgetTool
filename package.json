@@ -19,6 +19,9 @@
   "bugs": {
     "url": "https://github.com/salviolorenzo/budgetTool/issues"
   },
+  "devDependencies": {
+    "nodemon": "^1.18.7"
+  },
   "homepage": "https://github.com/salviolorenzo/budgetTool#readme",
   "dependencies": {
     "bcrypt": "^3.0.2",
@@ -29,7 +32,6 @@
     "express": "^4.16.4",
     "express-session": "^1.15.6",
     "node": "^11.2.0",
-    "nodemon": "^1.18.7",
     "pg-promise": "^8.5.2"
   }
 }
