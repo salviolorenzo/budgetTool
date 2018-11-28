@@ -1,0 +1,35 @@
+{
+  "name": "budgetPlanner",
+  "version": "1.0.0",
+  "description": "- A simple web app that users can use to determine where they stand with regards to spending and income.  - Button in top right of page takes the user to a bare-bones tip calculator.  ![alt text](images/readme/dtLanding.png) ![alt text](images/readme/mobileLanding.png)",
+  "main": "index.js",
+  "scripts": {
+    "reset-db": "dropdb budget-db; createdb budget-db; psql -f schema.sql budget-db; psql -f seed.sql budget-db; psql budget-db < node_modules/connect-pg-simple/table.sql",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "debug": "node --inspect-brk index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salviolorenzo/budgetTool.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/salviolorenzo/budgetTool/issues"
+  },
+  "homepage": "https://github.com/salviolorenzo/budgetTool#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.18.3",
+    "connect-pg-simple": "^5.0.0",
+    "dotenv": "^6.1.0",
+    "event-stream": "^3.3.4",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "node": "^11.2.0",
+    "nodemon": "^1.18.7",
+    "pg-promise": "^8.5.2"
+  }
+}
