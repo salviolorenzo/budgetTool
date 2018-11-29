@@ -12,7 +12,7 @@ class User {
 
     static add(name, email, password){
         // ADD BCRYPT FUNCTIONALITY
-        return db.any(
+        return db.one(
             `insert into users
             (name, email, password)
             values

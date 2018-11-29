@@ -9,14 +9,15 @@ class Account {
 
     // CREATE
     static add(amount, user_id){
-        return db.any(
+        return db.one(
             `insert into accounts
             (amount, user_id)
                 values
-                ($1,$2,$3)`,
+                ($1,$2),
+                returning id`,
                 [amount, user_id]
                 .then(result => {
-                    const a = new Account(result.id, result.amount, result.user_id)
+                    const a = new Account(result.id, amount, user_id)
                     return a;
                 })
         )
