@@ -34,6 +34,16 @@ const Account = require(`./models/Account`);
 const Income = require(`./models/Income`);
 const Expense = require(`./models/Expense`);
 
+function protectRoute(req, res, next) {
+    let isLoggedIn = req.session.user ? true : false;
+    if (isLoggedIn){
+        next();
+    }
+    else {
+        res.redirect('/');
+    }
+}
+
 // ROUTES
 
 app.get('/', (req, res) => {
@@ -46,6 +56,13 @@ app.get('/', (req, res) => {
         )
     )
 });
+
+// REGISTER
+app.post(`/register`, (req, res) => {
+    User.add()
+})
+
+
 
 app.get('/home', (req, res) => {
     res.send(

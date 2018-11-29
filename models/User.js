@@ -1,5 +1,6 @@
 const db = require('./db');
-
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 class User {
 // CREATE
@@ -12,14 +13,16 @@ class User {
 
     static add(name, email, password){
         // ADD BCRYPT FUNCTIONALITY
+        const salt = bcrypt.genSaltSync(saltRounds);
+        const hash = bcrypt.hashSync(password, salt);
         return db.one(
             `insert into users
             (name, email, password)
             values
             ($1,$2,$3)
-            returning id`, [name, email, password]
-        )
-        .then(data => {
+            returning id`, [name, email, hash]
+            )
+                    .then(data => {
             const u = new User(data.id, name, email);
             return u;
         })
@@ -40,6 +43,10 @@ class User {
             const u = new User(result.id, result.name, result.email);
             return u;    
         })
+    }
+
+    checkPassword(password){
+        return bcrypt.compareSync(password, this.passHash);
     }
 
     // UPDATE
