@@ -4,11 +4,11 @@ const saltRounds = 10;
 
 class User {
 // CREATE
-    constructor(id, name, email, passHash){
+    constructor(id, name, email, password){
         this.id = id,
         this.name = name,
         this.email = email,
-        this.passHash = passHash
+        this.password = password
     }
 
     static add(name, email, password){
@@ -23,7 +23,7 @@ class User {
             returning id`, [name, email, hash]
             )
                     .then(data => {
-            const u = new User(data.id, name, email);
+            const u = new User(data.id, name, email, hash);
             return u;
         })
     }
@@ -45,8 +45,17 @@ class User {
         })
     }
 
+    static getByEmail(email) {
+        return db.one(`
+            select * from users where email ilike '$1:raw'`, [email])
+            .then(result => {
+                const u = new User(result.id, result.name, result.email, result.password);
+                return u;
+            });
+    }
+
     checkPassword(password){
-        return bcrypt.compareSync(password, this.passHash);
+        return bcrypt.compareSync(password, this.password);
     }
 
     // UPDATE

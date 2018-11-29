@@ -59,15 +59,46 @@ app.get('/', (req, res) => {
 
 // REGISTER
 app.post(`/register`, (req, res) => {
-    User.add()
+    User.add(req.body.user_name, req.body.email, req.body.password)
+    .then(user => {
+        req.session.user = user;
+        res.redirect('/home');
+    })
+})
+
+// LOGIN
+app.post(`/login`, (req, res) => {
+    const email= req.body.email;
+    const password = req.body.password;
+    User.getByEmail(email)
+        .catch(err => {
+            console.log(err);
+        })
+        .then(user => {
+            const didMatch = user.checkPassword(password);
+            if (didMatch) {
+                req.session.user = user;
+                console.log(req.session.user);
+                res.redirect('/home');
+            }
+            else {
+                res.redirect(`/`);
+            }
+        })
+});
+
+// LOGOUT
+app.post(`/logout`, (req, res) => {
+    req.session.destroy();
+    res.redirect('/');
 })
 
 
 
-app.get('/home', (req, res) => {
+app.get('/home', protectRoute,(req, res) => {
     res.send(
         page(
-            `${helper.header()}
+            `${helper.header(req.session.user)}
             ${helper.summary()}
             ${helper.budget()}
             ${helper.calculator()}

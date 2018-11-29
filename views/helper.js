@@ -1,10 +1,11 @@
 function header(isLoggedIn=false){
     return `
     <header data-header>
-        <h1 data-header-text>Budgeter</h1>
+        <h1 data-header-text>Budgetter</h1>
         ${
             isLoggedIn ? calcLink() : none()
         }
+        ${isLoggedIn ? logoutButton() : none()}
     </header>
     `;
 }
@@ -17,6 +18,14 @@ function calcLink(){
 
 function none(){
     return ``;
+}
+
+function logoutButton(){
+    return `
+        <form action="/logout" method="POST">
+            <input type="submit" value="Logout">
+        </form>
+    `
 }
 
 function login(){
@@ -42,7 +51,7 @@ function register(){
             <label>
                 Name: <br>
             </label>
-            <input type="text" name="user-name" placeholder="John Smith" required>
+            <input type="text" name="user_name" placeholder="John Smith" required>
             <label>
                 Email: <br>
             </label>
