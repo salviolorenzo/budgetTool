@@ -12,10 +12,7 @@ function page(content){
         <title>Budgetter</title>
     </head>
     <body>
-        <header data-header>
-            <h1 data-header-text>Budgetter</h1>
-            <p data-display-switch class="button">Tip Calculator</p>
-        </header>
+
         ${content}
 
         <script src="../scripts/index.js"></script>

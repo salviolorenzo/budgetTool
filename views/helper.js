@@ -1,3 +1,62 @@
+function header(isLoggedIn=false){
+    return `
+    <header data-header>
+        <h1 data-header-text>Budgeter</h1>
+        ${
+            isLoggedIn ? calcLink() : none()
+        }
+    </header>
+    `;
+}
+
+function calcLink(){
+    return `
+        <p data-display-switch class="button">Tip Calculator</p>
+    `;
+}
+
+function none(){
+    return ``;
+}
+
+function login(){
+    return `
+        <section class="loginReg">
+            <form action='/login' method="POST">
+                <label>
+                    Email:<br>
+                </label>
+                <input type="email" name="email" required>
+                <label>
+                    Password:<br>
+                    <input type="password" name="password" required>
+                </label>
+                <input type="submit" value="Log in">
+            </form>
+    `;
+}
+
+function register(){
+    return `
+        <form action="/register" method="POST">
+            <label>
+                Name: <br>
+            </label>
+            <input type="text" name="user-name" placeholder="John Smith" required>
+            <label>
+                Email: <br>
+            </label>
+            <input type="email" name="email" placeholder="john@email.com" required>
+            <label>
+                Password: <br>
+            </label>
+            <input type="password" name="password" placeholder="p455w0rd!" required>
+            <input type="submit" value="register">
+        </form>
+    </section>
+    `
+}
+
 function summary(){
     return `
     <section class="summary budget">
@@ -85,6 +144,9 @@ function footer(){
 }
 
 module.exports = {
+    header,
+    login,
+    register,
     summary,
     budget,
     calculator,
