@@ -1,35 +1,33 @@
-function header(isLoggedIn=false){
-    return `
+function header(isLoggedIn = false) {
+  return `
     <header data-header>
         <h1 data-header-text>Budgetter</h1>
-        ${
-            isLoggedIn ? calcLink() : none()
-        }
+        ${isLoggedIn ? calcLink() : none()}
         ${isLoggedIn ? logoutButton() : none()}
     </header>
     `;
 }
 
-function calcLink(){
-    return `
+function calcLink() {
+  return `
         <p data-display-switch class="button">Tip Calculator</p>
     `;
 }
 
-function none(){
-    return ``;
+function none() {
+  return ``;
 }
 
-function logoutButton(){
-    return `
+function logoutButton() {
+  return `
         <form action="/logout" method="POST">
             <input type="submit" value="Logout">
         </form>
-    `
+    `;
 }
 
-function login(){
-    return `
+function login() {
+  return `
         <section class="loginReg">
             <form action='/login' method="POST">
                 <label>
@@ -45,8 +43,8 @@ function login(){
     `;
 }
 
-function register(){
-    return `
+function register() {
+  return `
         <form action="/register" method="POST">
             <label>
                 Name: <br>
@@ -63,29 +61,29 @@ function register(){
             <input type="submit" value="register">
         </form>
     </section>
-    `
+    `;
 }
 
-function summary(){
-    return `
+function summary(amount, income, expense, percent) {
+  return `
     <section class="summary budget">
         <h3 class="balanceHeader" data-budget-header>Total available:</h3>
-        <h1 class="total-balance" data-balance></h1>
+        <h1 class="total-balance" data-balance>$${amount}</h1>
         <div class="income-total">
             <p>INCOME</p>
-            <p class="numbers" data-income>0.00</p>
+            <p class="numbers" data-income>${income}</p>
         </div>
         <div class="expenses-total">
             <p>EXPENSES</p>
-            <p class="numbers" data-expense>0.00</p>
-            <p class="percentage" data-percent></p>
+            <p class="numbers" data-expense>${expense}</p>
+            <p class="percentage" data-percent>${percent}</p>
         </div>
     </section>
     `;
 }
 
-function budget(){
-    return `
+function budget() {
+  return `
     <section class="inputs budget">
         <form action="" data-form>
             <select name="plusminus" id="" data-select>
@@ -108,8 +106,8 @@ function budget(){
     `;
 }
 
-function calculator(){
-    `  
+function calculator() {
+  `  
     <section class="calculator hidden">
         <form action="" class="form" data-tip-form>
             <label for="">
@@ -137,8 +135,8 @@ function calculator(){
     </section>`;
 }
 
-function footer(){
-    return `
+function footer() {
+  return `
     <footer data-footer>
         <p>Built by Lorenzo Salvio</p>
         <ul class="contact" id="contact-me">
@@ -153,11 +151,11 @@ function footer(){
 }
 
 module.exports = {
-    header,
-    login,
-    register,
-    summary,
-    budget,
-    calculator,
-    footer
-}
+  header,
+  login,
+  register,
+  summary,
+  budget,
+  calculator,
+  footer
+};
