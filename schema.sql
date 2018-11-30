@@ -15,14 +15,12 @@ create table incomes(
     id serial primary key,
     amount float,
     date timestamp,
-    user_id integer references users (id),
-    account_id integer references accounts (id)
+    user_id integer references users (id)
 );
 
 create table expenses(
     id serial primary key,
     amount float,
     date timestamp,
-    user_id integer references users (id),
-    account_id integer references accounts (id)
+    user_id integer references users (id)
 );

@@ -99,15 +99,34 @@ app.get("/home", protectRoute, (req, res) => {
   User.getById(req.session.user.id).then(user => {
     Account.getByUser(user.id).then(account => {
       console.log(account[0].amount);
-      res.send(
-        page(
-          `${helper.header(req.session.user)}
-                ${helper.summary(account[0].amount, 0, 0, 0)}
+      Income.getByUser(user.id).then(incomeArray => {
+        console.log(incomeArray);
+        Expense.getByUser(user.id).then(expenseArray => {
+          console.log(expenseArray);
+          let incomes = 0;
+          let expenses = 0;
+          for (item of incomeArray) {
+            incomes += item.amount;
+          }
+          for (item of expenseArray) {
+            expenses += item.amount;
+          }
+          res.send(
+            page(
+              `${helper.header(req.session.user)}
+                ${helper.summary(
+                  account[0].amount,
+                  incomes,
+                  expenses,
+                  (expenses / incomes) * 100 + "%"
+                )}
                 ${helper.budget()}
                 ${helper.calculator()}
                 ${helper.footer()}`
-        )
-      );
+            )
+          );
+        });
+      });
     });
   });
 });
