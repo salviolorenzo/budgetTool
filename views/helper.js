@@ -35,11 +35,11 @@ function login() {
             <form action='/login' method="POST">
                 <label>
                     Email:<br>
-                </label>
-                <input type="email" name="email" required>
+                    <input type="email" name="email" required><br>
+                    </label>
                 <label>
                     Password:<br>
-                    <input type="password" name="password" required>
+                    <input type="password" name="password" required><br>
                 </label>
                 <input type="submit" value="Log in">
             </form>
@@ -51,17 +51,17 @@ function register() {
         <form action="/register" method="POST">
             <label>
                 Name: <br>
-            </label>
-            <input type="text" name="user_name" placeholder="John Smith" required>
+                <input type="text" name="user_name" placeholder="John Smith" required><br>
+                </label>
             <label>
                 Email: <br>
-            </label>
-            <input type="email" name="email" placeholder="john@email.com" required>
+                <input type="email" name="email" placeholder="john@email.com" required><br>
+                </label>
             <label>
                 Password: <br>
-            </label>
-            <input type="password" name="password" placeholder="p455w0rd!" required>
-            <input type="submit" value="register">
+                <input type="password" name="password" placeholder="p455w0rd!" required><br>
+                </label>
+            <input type="submit" value="Register">
         </form>
     </section>
     `;
@@ -117,7 +117,7 @@ function drawBoxes(inputArray) {
     return `
             <div class="added">
                 <p>${item.description}</p>
-                <p>${item.amount}</p>
+                <p>$ ${item.amount}</p>
             </div>
             `;
   });

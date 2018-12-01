@@ -132,7 +132,7 @@ app.get("/home", protectRoute, (req, res) => {
                   helper.drawBoxes(incomeArray),
                   helper.drawBoxes(expenseArray)
                 )}
-                ${helper.calculator()}
+
                 ${helper.footer()}`
             )
           );
