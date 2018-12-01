@@ -6,7 +6,7 @@ insert into users
 insert into accounts
   (amount, user_id)
   values
-  (1000, 1);
+  (0, 1);
 
 insert into incomes
   (amount, description, date, user_id)

@@ -122,12 +122,15 @@ app.get("/home", protectRoute, (req, res) => {
             page(
               `${helper.header(req.session.user)}
                 ${helper.summary(
-                  account[0].amount,
+                  month + "/" + day + "/" + year,
+                  account[0].amount + incomes - expenses,
                   incomes,
                   expenses,
                   (expenses / incomes) * 100 + "%"
                 )}
-                ${helper.budget()}
+                ${helper.budget(`
+                  <p>hey</p>
+                `)}
                 ${helper.calculator()}
                 ${helper.footer()}`
             )

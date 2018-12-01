@@ -64,10 +64,10 @@ function register() {
     `;
 }
 
-function summary(amount, income, expense, percent) {
+function summary(date, amount, income, expense, percent) {
   return `
     <section class="summary budget">
-        <h3 class="balanceHeader" data-budget-header>Total available:</h3>
+        <h3 class="balanceHeader" data-budget-header>${date}<br>Total available:</h3>
         <h1 class="total-balance" data-balance>$${amount}</h1>
         <div class="income-total">
             <p>INCOME</p>
@@ -82,7 +82,7 @@ function summary(amount, income, expense, percent) {
     `;
 }
 
-function budget() {
+function budget(inc_content, exp_content) {
   return `
     <section class="inputs budget">
         <form action="/addData" method="POST" data-form>
@@ -98,9 +98,11 @@ function budget() {
     <section class="balance-sheet budget">
         <div class="income" data-add-income>
             <h3>INCOMES</h3>
+            ${inc_content}
         </div>
         <div class="expenses" data-add-expense>
             <h3>EXPENSES</h3>
+            ${exp_content}
         </div>
     </section>
     `;
