@@ -126,11 +126,12 @@ app.get("/home", protectRoute, (req, res) => {
                   account[0].amount + incomes - expenses,
                   incomes,
                   expenses,
-                  (expenses / incomes) * 100 + "%"
+                  ((expenses / incomes) * 100).toFixed(2) + "%"
                 )}
-                ${helper.budget(`
-                  <p>hey</p>
-                `)}
+                ${helper.budget(
+                  helper.drawBoxes(incomeArray),
+                  helper.drawBoxes(expenseArray)
+                )}
                 ${helper.calculator()}
                 ${helper.footer()}`
             )

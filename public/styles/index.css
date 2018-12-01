@@ -1,109 +1,126 @@
-html{
-    box-sizing: border-box;
+html {
+  box-sizing: border-box;
 }
-*, *:before, *:after{
-    box-sizing: inherit;
-}
-
-html, body{
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
-body{
-    font-family: 'Courier New', Courier, monospace;
-    background-color: rgb(237, 237, 237);
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-h1, h2, h3, h4{
-    margin: 0;
+body {
+  font-family: "Courier New", Courier, monospace;
+  background-color: rgb(237, 237, 237);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
 }
 
 /* ============================================
 HEADER
 ============================================*/
-header{
-    display:flex;
-    justify-content: space-between;
-    padding: 10px;
-    align-items: center;
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
 }
 
-.button{
-    margin: 0;
+nav {
+  list-style-type: none;
+  display: flex;
+  width: 40%;
+  justify-content: space-between;
 }
 
-.button:hover{
-    cursor: pointer;
-    color: blue ;
+nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
 }
 
-.button:active{
-    transform: scale(1.1);
-    transition: transform 0.1s;
+.button {
+  margin: 0;
 }
 
+.button:hover {
+  cursor: pointer;
+  color: blue;
+}
 
+.button:active {
+  transform: scale(1.1);
+  transition: transform 0.1s;
+}
 
 /* ============================================
 SUMMARY SECTION
 ============================================*/
-.summary{
-    width: 100%;
-    min-height: 300px;
-    background-image: url(../images/background.jpg);
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+.summary {
+  width: 100%;
+  min-height: 300px;
+  background-image: url(../images/background.jpg);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
-.total-balance{
-    font-size: 50px;
+.total-balance {
+  font-size: 50px;
 }
 
-.income-total, .expenses-total{
-    display: flex;
-    width: 60%;
-    justify-content: space-between;
-    padding: 0 10px;
+.income-total,
+.expenses-total {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+  padding: 0 10px;
 }
 
-.income-total{
-    background-color: aquamarine;
-    /* padding-right: 15%; */
+.income-total {
+  background-color: aquamarine;
+  /* padding-right: 15%; */
 }
 
-.expenses-total{
-    background-color: rgb(244, 75, 75);
+.expenses-total {
+  background-color: rgb(244, 75, 75);
 }
 
-.numbers, .percentage{
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
+.numbers,
+.percentage {
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
 }
-
-
 
 /* ============================================
 FORM
 ============================================*/
 
-.inputs{
-    width: 100%;
-    display: flex;
-    /* flex-wrap: wrap; */
-    justify-content: center;
-    padding: 10px 0;
-    background-color: #f5f5f5 
+.inputs {
+  width: 100%;
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: center;
+  padding: 10px 0;
+  background-color: #f5f5f5;
 }
 
-.inputs form{
+.inputs form {
   width: 100%;
   height: 100%;
   display: inherit;
@@ -115,125 +132,122 @@ FORM
 BALANCE SHEET
 ============================================*/
 
-.balance-sheet{
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    padding: 20px 0;
+.balance-sheet {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 20px 0;
 }
 
-.income, .expense{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+.income,
+.expenses {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
-.income h3{
-    max-width: 100%;
-    color: rgb(99, 235, 190);
-    text-align: center;
+.income h3 {
+  max-width: 100%;
+  color: rgb(99, 235, 190);
+  text-align: center;
 }
 
-.expenses h3{
-    color: rgb(244, 75, 75);
+.expenses h3 {
+  color: rgb(244, 75, 75);
 }
 
-.added{
-    display: flex;
-    width:90%;
-    justify-content: space-between;
-    padding: 0 5px;
-    margin: 10px 0;
-    background-color: #f5f5f5;
+.added {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  padding: 0 5px;
+  margin: 10px 0;
+  background-color: #f5f5f5;
 }
 
 /* ===================================
 FOOTER
 ======================================*/
 
-footer{
-    display:flex;
-    flex-wrap: wrap;
-    width: 100%;
-    align-items: flex-end;
-    bottom: 0;
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: flex-end;
+  bottom: 0;
 }
 
-footer p{
-    width: 100%;
-    text-align: center;
+footer p {
+  width: 100%;
+  text-align: center;
 }
 
-.contact{
-    display: inherit;
-    margin: 0;
-    list-style-type: none;
-    width: 100%;
-    justify-content: space-evenly;
-    padding:0;
-
+.contact {
+  display: inherit;
+  margin: 0;
+  list-style-type: none;
+  width: 100%;
+  justify-content: space-evenly;
+  padding: 0;
 }
 
-
-footer i{
-    color: black;
-    font-size: 24px;
+footer i {
+  color: black;
+  font-size: 24px;
 }
 
-footer i:hover{
-    transform: scale(2);
-    transition: transform 0.25s;
-    /* padding-bottom:10px; */
+footer i:hover {
+  transform: scale(2);
+  transition: transform 0.25s;
+  /* padding-bottom:10px; */
 }
 
- 
 /* ===================================
 Tip Calculator
 ======================================*/
-.calculator{
-    background-color: #323232;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-    color: #f5f5f5;
+.calculator {
+  background-color: #323232;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  color: #f5f5f5;
 }
 
-.calculator p{
-    font-size: 30px;
+.calculator p {
+  font-size: 30px;
 }
 
-.calculator form{
-    display: inherit;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 50%;
+.calculator form {
+  display: inherit;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 50%;
 }
 
-.calculator input{
+.calculator input {
   padding: 10px;
 }
 
-.screen{
-    width: 100px;
-    background-color: #f5f5f5;
-    height: 50px;
+.screen {
+  width: 100px;
+  background-color: #f5f5f5;
+  height: 50px;
 }
-
 
 /* ======================================*/
 /* Click Event CLASSES */
 /* ======================================*/
-.hidden{
-    display: none;
+.hidden {
+  display: none;
 }
 
-.darkMode{
-    color: white;
-    background-color: gray;
+.darkMode {
+  color: white;
+  background-color: gray;
 }

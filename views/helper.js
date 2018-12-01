@@ -10,7 +10,10 @@ function header(isLoggedIn = false) {
 
 function calcLink() {
   return `
-        <p data-display-switch class="button">Tip Calculator</p>
+    <nav>
+        <li><a href="#incomes">INCOMES</a></li>
+        <li><a href="#expenses">EXPENSES</a></li>
+    </nav>
     `;
 }
 
@@ -71,11 +74,12 @@ function summary(date, amount, income, expense, percent) {
         <h1 class="total-balance" data-balance>$${amount}</h1>
         <div class="income-total">
             <p>INCOME</p>
-            <p class="numbers" data-income>${income}</p>
+            <p class="numbers" data-income>$ ${income}</p>
+            <p class="percentage" data-percent></p>
         </div>
         <div class="expenses-total">
             <p>EXPENSES</p>
-            <p class="numbers" data-expense>${expense}</p>
+            <p class="numbers" data-expense>$ ${expense}</p>
             <p class="percentage" data-percent>${percent}</p>
         </div>
     </section>
@@ -96,16 +100,32 @@ function budget(inc_content, exp_content) {
         </form>
     </section>
     <section class="balance-sheet budget">
-        <div class="income" data-add-income>
+        <div class="income" id="incomes" data-add-income>
             <h3>INCOMES</h3>
             ${inc_content}
         </div>
-        <div class="expenses" data-add-expense>
+        <div class="expenses" id="expenses" data-add-expense>
             <h3>EXPENSES</h3>
             ${exp_content}
         </div>
     </section>
     `;
+}
+
+function drawBoxes(inputArray) {
+  let stringArray = inputArray.map(item => {
+    return `
+            <div class="added">
+                <p>${item.description}</p>
+                <p>${item.amount}</p>
+            </div>
+            `;
+  });
+  let string = ``;
+  stringArray.forEach(item => {
+    string += item;
+  });
+  return string;
 }
 
 function calculator() {
@@ -159,5 +179,6 @@ module.exports = {
   summary,
   budget,
   calculator,
-  footer
+  footer,
+  drawBoxes
 };
