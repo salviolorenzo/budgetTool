@@ -85,7 +85,7 @@ function summary(amount, income, expense, percent) {
 function budget() {
   return `
     <section class="inputs budget">
-        <form action="" data-form>
+        <form action="/addData" method="POST" data-form>
             <select name="plusminus" id="" data-select>
                 <option value="+">+</option>
                 <option value="-">-</option>

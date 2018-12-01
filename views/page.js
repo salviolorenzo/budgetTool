@@ -1,5 +1,5 @@
-function page(content){
-    return `
+function page(content) {
+  return `
     <!DOCTYPE html>
     <html lang="en">
     
@@ -15,12 +15,11 @@ function page(content){
 
         ${content}
 
-        <script src="../scripts/index.js"></script>
     </body>
     
     
     </html>
-    `
+    `;
 }
 
 module.exports = page;

@@ -9,14 +9,14 @@ insert into accounts
   (1000, 1);
 
 insert into incomes
-  (amount, date, user_id)
+  (amount, description, date, user_id)
   values
-  (100, '2018-11-30', 1),
-  (150, '2018-11-30', 1);
+  (100, 'sold stuff', '2018-11-30', 1),
+  (150, 'sold my soul', '2018-11-30', 1);
 
 insert into expenses
-  (amount, date, user_id)
+  (amount, description, date, user_id)
   values
-  (20, '2018-11-30', 1),
-  (350, '2018-11-30', 1);
+  (20, 'bought some things', '2018-11-30', 1),
+  (350, 'bought other things', '2018-11-30', 1);
 

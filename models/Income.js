@@ -5,14 +5,14 @@ class Income {
     (this.id = id), (this.amount = amount), (this.date = date);
   }
 
-  static add(amount, date, account_id) {
+  static add(amount, description, date, user_id) {
     db.one(
       `insert into incomes
-            (amount, date, account_id)
+            (amount, description, date, user_id)
             values
-            ($1,$2,$3)
-            returning id`,
-      [amount, date, account_id]
+            ($1,$2,$3,$4)
+            `,
+      [amount, description, date, user_id]
     ).then(data => {
       const i = new Income(data.id, amount, account, date, account_id);
       return i;

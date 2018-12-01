@@ -5,16 +5,16 @@ class Expense {
     (this.id = id), (this.amount = amount), (this.date = date);
   }
 
-  static add(amount, date, account_id) {
+  static add(amount, description, date, user_id) {
     db.one(
       `insert into expenses
-            (amount, date, account_id)
+            (amount, description, date, user_id)
             values
-            ($1,$2,$3)
+            ($1,$2,$3,$4)
             returning id`,
-      [amount, date, account_id]
+      [amount, description, date, user_id]
     ).then(data => {
-      const i = new Expense(data.id, amount, account, date, account_id);
+      const i = new Expense(data.id, amount, description, date, user_id);
       return i;
     });
   }
@@ -25,7 +25,12 @@ class Expense {
             where id=$1`,
       [id]
     ).then(result => {
-      const i = new Expense(result.id, result.amount, result.date);
+      const i = new Expense(
+        result.id,
+        result.amount,
+        result.description,
+        result.date
+      );
       return i;
     });
   }

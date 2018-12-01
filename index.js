@@ -45,6 +45,13 @@ function protectRoute(req, res, next) {
   }
 }
 
+// DEFINE TODAY'S DATE
+let d = new Date();
+let day = d.getDate();
+let month = d.getMonth() + 1;
+let year = d.getFullYear();
+let today = `${year}-${month}-${day}`;
+
 // ROUTES
 
 app.get("/", (req, res) => {
@@ -129,6 +136,19 @@ app.get("/home", protectRoute, (req, res) => {
       });
     });
   });
+});
+
+app.post(`/addData`, (req, res) => {
+  let user = req.session.user;
+  let amount = req.body.amount;
+  let description = req.body.description;
+  if (req.body.plusminus === `+`) {
+    Income.add(amount, description, today, user.id);
+    res.redirect(`/home`);
+  } else if (req.body.plusminus === `-`) {
+    Expense.add(amount, description, today, user.id);
+    res.redirect(`/home`);
+  }
 });
 
 // GET ACCOUNT INFO
